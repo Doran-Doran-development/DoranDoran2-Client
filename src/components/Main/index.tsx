@@ -2,7 +2,7 @@ import { Arrow } from "assets";
 import React from "react";
 import styled from "styled-components";
 
-const Main = () => {
+const Main: React.FC = () => {
   return (
     <S.Positioner>
       <S.Wrapper>
