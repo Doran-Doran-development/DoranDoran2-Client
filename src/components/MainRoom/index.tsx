@@ -1,7 +1,18 @@
-import React from "react";
+import React, { Fragment } from "react";
 import styled from "styled-components";
 
-const MainRoom: React.FC = () => {
+type RoomData = {
+  name: string;
+  room_image: string;
+  max_team: number;
+  status: number;
+};
+
+interface MainRoomProps {
+  RoomDummyData: RoomData[];
+}
+
+const MainRoom: React.FC<MainRoomProps> = ({ RoomDummyData }) => {
   return (
     <S.Positioner>
       <S.Wrapper>
@@ -27,12 +38,14 @@ const MainRoom: React.FC = () => {
         </S.TitleWrapper>
         <S.RoomWrapper>
           <S.SlideWrapper>
-            <div>
-              <S.RoomContent></S.RoomContent>
-              <S.RoomContent></S.RoomContent>
-              <S.RoomContent></S.RoomContent>
-              <S.RoomContent></S.RoomContent>
-            </div>
+            <S.RoomContent>
+              {RoomDummyData.map((data, idx) => (
+                <S.Room>
+                  <img src={data.room_image} alt={data.name} />
+                  <div>{data.name}</div>
+                </S.Room>
+              ))}
+            </S.RoomContent>
           </S.SlideWrapper>
         </S.RoomWrapper>
       </S.Wrapper>
@@ -78,35 +91,39 @@ const S = {
     width: 100%;
     height: 100%;
     overflow: scroll;
+  `,
+  RoomContent: styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  `,
+  Room: styled.div`
+    width: 350px;
+    height: 350px;
+    margin: 1rem;
+    background-color: gray;
+
+    img {
+      position: relative;
+      width: 350px;
+      height: 350px;
+    }
 
     div {
       display: flex;
-      width: calc(100% * 4);
-      height: 100%;
-      list-style: none;
-      transition: 1s;
-
-      &:active {
-        margin-left: -100%;
-      }
-    }
-  `,
-  RoomContent: styled.div`
-    width: calc(100% / 4);
-    height: 100%;
-    list-style: none;
-
-    &:nth-child(1) {
-      background-color: #ffa;
-    }
-    &:nth-child(2) {
-      background-color: #faa;
-    }
-    &:nth-child(3) {
-      background-color: #afa;
-    }
-    &:nth-child(4) {
-      background-color: #aaf;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      bottom: 52px;
+      left: 0px;
+      width: 100%;
+      height: 50px;
+      background-color: rgba(0, 0, 0, 0.42);
+      color: #ffffff;
+      letter-spacing: -0.05em;
+      font-weight: 600;
     }
   `,
 };
