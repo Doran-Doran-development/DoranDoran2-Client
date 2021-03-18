@@ -1,3 +1,4 @@
 import MainPage from "./MainPage";
+import MainRoomPage from "./MainRoomPage";
 
-export { MainPage };
+export { MainPage, MainRoomPage };
