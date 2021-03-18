@@ -81,10 +81,14 @@ const S = {
 
     div {
       display: flex;
-      width: 100%;
+      width: calc(100% * 4);
       height: 100%;
       list-style: none;
       transition: 1s;
+
+      &:active {
+        margin-left: -100%;
+      }
     }
   `,
   RoomContent: styled.div`

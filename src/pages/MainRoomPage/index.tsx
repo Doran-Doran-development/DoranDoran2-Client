@@ -1,4 +1,5 @@
-import { MainHeader, MainRoom } from "components";
+import { MainHeader } from "components";
+import { MainRoomContainer } from "container";
 import React from "react";
 import styled from "styled-components";
 
@@ -6,7 +7,7 @@ const MainRoomPage: React.FC = () => {
   return (
     <Positioner>
       <MainHeader />
-      <MainRoom />
+      <MainRoomContainer />
     </Positioner>
   );
 };
