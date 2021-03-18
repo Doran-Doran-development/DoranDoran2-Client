@@ -1,10 +1,12 @@
+import { MainHeader } from "components";
 import React from "react";
 import styled from "styled-components";
 
 const MainRoomPage: React.FC = () => {
   return (
     <Positioner>
-      <div>dd</div>
+      <MainHeader />
+      ss
     </Positioner>
   );
 };
