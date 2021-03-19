@@ -40,10 +40,12 @@ const MainRoom: React.FC<MainRoomProps> = ({ RoomDummyData }) => {
           <S.SlideWrapper>
             <S.RoomContent>
               {RoomDummyData.map((data, idx) => (
-                <S.Room>
-                  <img src={data.room_image} alt={data.name} />
-                  <div>{data.name}</div>
-                </S.Room>
+                <>
+                  <S.Room>
+                    <img src={data.room_image} alt={data.name} />
+                    <div>{data.name}</div>
+                  </S.Room>
+                </>
               ))}
             </S.RoomContent>
           </S.SlideWrapper>
