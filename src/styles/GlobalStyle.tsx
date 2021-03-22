@@ -15,4 +15,15 @@ export const GlobalStyle = createGlobalStyle`
         cursor: pointer;
         outline: none;
     }
+    
+  ::-webkit-scrollbar {
+    width: 11px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #6983DC;
+    border-radius: 20px;
+    background-clip: padding-box;
+    border: 2px solid transparent;
+  }
 `;
