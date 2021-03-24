@@ -1,11 +1,14 @@
+import { MainOuting } from "components";
 import React from "react";
 import styled from "styled-components";
 import background from "../../assets/background/MainOutingBackground.png";
 
-const MainOutingPage = () => {
+const MainOutingPage: React.FC = () => {
   return (
     <Positioner>
-      <Background></Background>
+      <Background>
+        <MainOuting />
+      </Background>
     </Positioner>
   );
 };
