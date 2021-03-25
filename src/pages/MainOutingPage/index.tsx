@@ -1,14 +1,13 @@
+import { MainOuting } from "components";
 import React from "react";
 import styled from "styled-components";
-import { Main, MainHeader } from "components";
-import background from "../../assets/background/MainBackground.png";
+import background from "../../assets/background/MainOutingBackground.png";
 
-const MainPage: React.FC = () => {
+const MainOutingPage: React.FC = () => {
   return (
     <Positioner>
       <Background>
-        <MainHeader />
-        <Main />
+        <MainOuting />
       </Background>
     </Positioner>
   );
@@ -28,4 +27,4 @@ const Background = styled.div`
   background: rgba(0, 0, 0, 0.5);
 `;
 
-export default MainPage;
+export default MainOutingPage;
