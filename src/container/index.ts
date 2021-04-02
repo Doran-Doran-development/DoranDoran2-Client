@@ -1,3 +1,5 @@
 import MainRoomContainer from "./MainRoomContainer";
+import MypageContainer from "./MypageContainer"
+import HomeContainer from "./HomeContainer";
 
-export { MainRoomContainer };
+export { MainRoomContainer, MypageContainer, HomeContainer };
