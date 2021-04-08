@@ -2,6 +2,14 @@ import MainPage from "./MainPage";
 import MainRoomPage from "./MainRoomPage";
 import MainOutingPage from "./MainOutingPage";
 import Mypage from "./Mypage";
-import HomePage from "./HomePage"
+import HomePage from "./HomePage";
+import MeetingRoomPage from "./MeetingRoomPage";
 
-export { MainPage, MainRoomPage, MainOutingPage, Mypage, HomePage };
+export {
+  MainPage,
+  MainRoomPage,
+  MainOutingPage,
+  Mypage,
+  HomePage,
+  MeetingRoomPage,
+};
