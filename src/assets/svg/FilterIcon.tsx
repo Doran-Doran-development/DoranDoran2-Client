@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function FilterIcon() {
+const FilterIcon = () => {
   return (
     <svg
       width={57}
@@ -50,6 +50,6 @@ function FilterIcon() {
       </defs>
     </svg>
   );
-}
+};
 
 export default FilterIcon;
