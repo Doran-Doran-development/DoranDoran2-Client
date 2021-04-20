@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function MypageRoomLogo() {
+const MypageRoomLogo = () => {
   return (
     <svg
       width={56}
@@ -41,6 +41,6 @@ function MypageRoomLogo() {
       </defs>
     </svg>
   );
-}
+};
 
 export default MypageRoomLogo;

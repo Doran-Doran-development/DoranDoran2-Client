@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function Search() {
+const Search = () => {
   return (
     <svg
       width={32}
@@ -31,6 +31,6 @@ function Search() {
       </defs>
     </svg>
   );
-}
+};
 
 export default Search;
