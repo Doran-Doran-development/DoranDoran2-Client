@@ -5,5 +5,6 @@ import MainOuting from "./MainOuting";
 import Header from "./Header"
 import Mypage from "./Mypage"
 import Home from "./Home"
+import Outing from "./Outing"
 
-export { MainHeader, Main, MainRoom, MainOuting, Header, Mypage, Home };
+export { MainHeader, Main, MainRoom, MainOuting, Header, Mypage, Home, Outing };
