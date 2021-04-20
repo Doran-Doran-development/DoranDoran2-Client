@@ -8,7 +8,6 @@ import {
   Mypage,
   OutingPage,
 } from "pages";
-
 const App: React.FC = () => {
   return (
     <>

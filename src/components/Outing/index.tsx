@@ -1,8 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import OutingBackground from "../../assets/background/OutingBackground.png";
+import OutingModal from "../OutingModal";
+import ModalPortal from "../ModalPortal";
+import useModal from "hooks/useModal";
 
 const Outing: React.FC = () => {
+  const { isShow, toggleModal } = useModal();
   return (
     <S.Positioner>
       <S.Background>
@@ -34,8 +38,11 @@ const Outing: React.FC = () => {
             <input type="text" placeholder="사유을 입력하세요" />
           </div>
         </S.OutingFormWrapper>
-        <S.OutingButton>외출 신청하기</S.OutingButton>
+        <S.OutingButton onClick={toggleModal}>외출 신청하기</S.OutingButton>
       </S.OutingWrapper>
+      <ModalPortal isShow={isShow}>
+        <OutingModal toggleModal={toggleModal} />
+      </ModalPortal>
     </S.Positioner>
   );
 };
