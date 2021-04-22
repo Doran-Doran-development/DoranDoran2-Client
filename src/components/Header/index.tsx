@@ -6,7 +6,7 @@ const Header: React.FC = () => {
   return (
     <S.Positioner>
       <S.LogoWrapper>
-        <Logo />
+        <Logo width={51} height={51} />
       </S.LogoWrapper>
       <S.ContentWrapper>
         <span>회의실 목록보기</span>

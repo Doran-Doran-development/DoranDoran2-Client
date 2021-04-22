@@ -6,7 +6,7 @@ const MainHeader: React.FC = () => {
   return (
     <S.Positioner>
       <S.LogoWrapper>
-        <Logo />
+        <Logo width={76} height={76} />
       </S.LogoWrapper>
     </S.Positioner>
   );
