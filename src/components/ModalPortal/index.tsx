@@ -16,6 +16,7 @@ const ModalPortal: React.FC<ModalType> = ({ isShow, children }) => {
       )
     : null;
 };
+
 const S = {
   ModalOverlay: styled.div`
     position: fixed;
