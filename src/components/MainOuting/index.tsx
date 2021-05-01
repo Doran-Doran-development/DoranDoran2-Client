@@ -41,6 +41,7 @@ const S = {
     align-items: flex-end;
     width: 100%;
     height: 100%;
+    padding-right: 8rem;
 
     span {
       text-align: right;
@@ -50,6 +51,7 @@ const S = {
       font-size: 60px;
       letter-spacing: -0.05em;
       font-weight: bold;
+      padding-bottom: 100px;
     }
   `,
   ContentButton: styled.div`

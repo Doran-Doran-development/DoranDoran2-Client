@@ -12,7 +12,6 @@ export const GlobalStyle = createGlobalStyle`
     button:focus {
         outline: none;
     }
-
     button {
         cursor: pointer;
         outline: none;
@@ -21,7 +20,6 @@ export const GlobalStyle = createGlobalStyle`
   ::-webkit-scrollbar {
     width: 11px;
   }
-
   ::-webkit-scrollbar-thumb {
     background-color: #6983DC;
     border-radius: 20px;

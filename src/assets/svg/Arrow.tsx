@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function Arrow() {
+const Arrow = () => {
   return (
     <svg
       width={41}
@@ -15,6 +15,6 @@ function Arrow() {
       />
     </svg>
   );
-}
+};
 
 export default Arrow;
