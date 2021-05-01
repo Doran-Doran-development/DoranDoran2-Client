@@ -2,6 +2,8 @@ import { Arrow } from "assets";
 import React from "react";
 import styled from "styled-components";
 import RentalRoomBackground from "assets/background/RoomDetailBackground.png";
+import { ModalPortal, RentalModal } from "components";
+import useModal from "hooks/useModal";
 
 interface SelectStatusTitleType {
   text: string;
@@ -9,15 +11,33 @@ interface SelectStatusTitleType {
   border: string;
 }
 
+interface TeamPeopleType {
+  name: string;
+  email: string;
+}
+
+interface RentalTeamType {
+  teamName: string;
+  teamPeople: TeamPeopleType[];
+}
+interface TeamPeopleItemType {
+  name: string;
+  email: string;
+}
 interface RentalRoomDummyData {
   SelectTitleArray: SelectStatusTitleType[];
   ClasstimeItem: number[];
+  TeamPeopleListDummyData: TeamPeopleItemType[];
+  Teams: RentalTeamType[];
 }
 
 const RentalRoom: React.FC<RentalRoomDummyData> = ({
   SelectTitleArray,
   ClasstimeItem,
+  TeamPeopleListDummyData,
+  Teams,
 }) => {
+  const { isShow, toggleModal } = useModal();
   return (
     <S.Positioner>
       <S.Background>
@@ -29,16 +49,16 @@ const RentalRoom: React.FC<RentalRoomDummyData> = ({
           <S.RentalRoomFormNameAndTeam>
             <div>
               <span>이름</span>
-              <input type="text" />
+              <input type="text" placeholder="이름을 입력하세요" />
             </div>
             <div>
               <span>대여 팀</span>
-              <input type="text" />
+              <input type="text" placeholder="대여할 팀을 입력하세요" />
             </div>
           </S.RentalRoomFormNameAndTeam>
           <S.RentalRoomFormRegion>
             <span>사유</span>
-            <input type="text" />
+            <input type="text" placeholder="사유를 입력하세요" />
           </S.RentalRoomFormRegion>
           <S.RentalTimeSelectWrapper>
             <S.RentalSelectTitleWrapper>
@@ -67,13 +87,19 @@ const RentalRoom: React.FC<RentalRoomDummyData> = ({
                 ))}
               </S.RentalClasstimeListWrapper>
               <S.RentalBtn>
-                <button>예약하기</button>
+                <button onClick={toggleModal}>예약하기</button>
                 <Arrow />
               </S.RentalBtn>
             </S.RentalClasstimeSelectWrapper>
           </S.RentalTimeSelectWrapper>
         </S.RentalRoomFormWrapper>
       </S.Wrapper>
+      <ModalPortal isShow={isShow}>
+        <RentalModal
+          toggleModal={toggleModal}
+          TeamPeopleListDummyData={TeamPeopleListDummyData}
+        />
+      </ModalPortal>
     </S.Positioner>
   );
 };
