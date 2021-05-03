@@ -1,46 +1,35 @@
-# Getting Started with Create React App
+# 도란도란
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 서비스 소개
+도란도란은 교내 실습실 예약 및 관리 서비스와 학생 외출 관리 서비가 융합된 종합 관리 서비스 입니다.
 
-## Available Scripts
+## 기능 
 
-In the project directory, you can run:
+### **회의실**
+ - 회의실 생성
+ - 회의실 관리
+ - 회의실 정보 수정
 
-### `yarn start`
+### **예약**
+ - 회의실 예약
+ - 회의실 사용 팀 생성
+ - 회의실 사용 팀 수정 및 삭제
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### **교실**
+ - 모든 반 인원 수 및 이동사항 확인
+ - 자신의 현 상태 표시
+ - 자신의 반 현황 표시
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### **외출**
+ - 외출 신청
+ - 외출 신청 목록 확인 및 승인
+ - 외출 상태 표시
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## FE 개발 
+ - 안채웅 https://github.com/chaewoong0407
+ - 신이삭 https://github.com/towel1017
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Doran-Doran-Vercel
+https://doran-doran2-client.vercel.app/
