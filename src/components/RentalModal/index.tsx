@@ -1,4 +1,5 @@
 import { Arrow, CloseBtn } from "assets";
+import useFocusContent from "hooks/useFocusContent";
 import React from "react";
 import styled from "styled-components";
 
@@ -13,12 +14,15 @@ interface TeamPeopleItemType {
 
 interface RentalModalPropsType extends RentalModalType {
   TeamPeopleListDummyData: TeamPeopleItemType[];
+  RecentWordListDummyData: TeamPeopleItemType[];
 }
 
 const RentalModal: React.FC<RentalModalPropsType> = ({
   toggleModal,
   TeamPeopleListDummyData,
+  RecentWordListDummyData,
 }) => {
+  const { isFocus, toggleFocusContent } = useFocusContent();
   return (
     <S.Positioner>
       <S.RentalModalWrapper>
@@ -45,7 +49,20 @@ const RentalModal: React.FC<RentalModalPropsType> = ({
               <input
                 type="text"
                 placeholder="추가할 팀원의 이메일을 입력하세요"
+                onBlur={toggleFocusContent}
+                onClick={toggleFocusContent}
               />
+              {isFocus ? (
+                <S.InputRecentWordWrapper>
+                  {RecentWordListDummyData.map(({ name, email }) => (
+                    <S.InputRecentWrodItem>
+                      <div />
+                      <span>{name}</span>
+                      <p>{email}</p>
+                    </S.InputRecentWrodItem>
+                  ))}
+                </S.InputRecentWordWrapper>
+              ) : null}
             </S.TeamPeopleInput>
             <S.TeamPeopleListWrapper>
               <span>팀원 목록</span>
@@ -178,8 +195,56 @@ const S = {
       border-radius: 10px;
     }
   `,
+  InputRecentWordWrapper: styled.div`
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-shadow: -1px -1px 3px rgba(0, 0, 0, 0.25),
+      1px 1px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    overflow-x: auto;
+  `,
+  InputRecentWrodItem: styled.div`
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    justify-content: space-evenly;
+    border-radius: 10px;
+    &:hover {
+      background-color: #e1e1e1;
+      & > div {
+        background-color: white;
+      }
+    }
+    & > div {
+      width: 15px;
+      height: 15px;
+      background-color: #e1e1e1;
+      border-radius: 100%;
+    }
+    span {
+      flex: 0.2;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 21px;
+      text-align: center;
+      letter-spacing: -0.05em;
+
+      color: #000000;
+    }
+    p {
+      flex: 0.8;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 14px;
+      letter-spacing: -0.05em;
+
+      color: #939393;
+    }
+  `,
   TeamPeopleListWrapper: styled.div`
     width: 30%;
+    height: 95%;
     display: flex;
     flex-direction: column;
     span {
@@ -210,6 +275,7 @@ const S = {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    padding: 10px 0;
     border-bottom: 1px solid gray;
     & > span {
       font-weight: 600;
@@ -234,7 +300,7 @@ const S = {
     display: flex;
     justify-content: center;
     align-self: flex-end;
-    margin-top: 5vh;
+    margin-top: 1vh;
     border: 2px solid #003464;
     box-sizing: border-box;
     border-radius: 510px;

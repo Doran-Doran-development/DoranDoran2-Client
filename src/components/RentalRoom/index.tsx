@@ -4,30 +4,26 @@ import styled from "styled-components";
 import RentalRoomBackground from "assets/background/RoomDetailBackground.png";
 import { ModalPortal, RentalModal } from "components";
 import useModal from "hooks/useModal";
-
+import useFocusContent from "hooks/useFocusContent";
 interface SelectStatusTitleType {
   text: string;
   background: string;
   border: string;
 }
-
-interface TeamPeopleType {
-  name: string;
-  email: string;
-}
-
 interface RentalTeamType {
   teamName: string;
-  teamPeople: TeamPeopleType[];
+  teamPeople: TeamPeopleItemType[];
 }
 interface TeamPeopleItemType {
   name: string;
   email: string;
 }
+interface RecentTeamItemType {}
 interface RentalRoomDummyData {
   SelectTitleArray: SelectStatusTitleType[];
   ClasstimeItem: number[];
   TeamPeopleListDummyData: TeamPeopleItemType[];
+  RecentWordListDummyData: TeamPeopleItemType[];
   Teams: RentalTeamType[];
 }
 
@@ -35,9 +31,11 @@ const RentalRoom: React.FC<RentalRoomDummyData> = ({
   SelectTitleArray,
   ClasstimeItem,
   TeamPeopleListDummyData,
+  RecentWordListDummyData,
   Teams,
 }) => {
   const { isShow, toggleModal } = useModal();
+  const { isFocus, toggleFocusContent } = useFocusContent();
   return (
     <S.Positioner>
       <S.Background>
@@ -53,7 +51,25 @@ const RentalRoom: React.FC<RentalRoomDummyData> = ({
             </div>
             <div>
               <span>대여 팀</span>
-              <input type="text" placeholder="대여할 팀을 입력하세요" />
+              <S.RentalRoomFormRecentTeamListWrapper>
+                <input
+                  type="text"
+                  placeholder="대여할 팀을 입력하세요"
+                  onClick={toggleFocusContent}
+                />
+                {isFocus ? (
+                  <S.RecentTeamList>
+                    {Teams.map(({ teamName }) => (
+                      <S.RecentTeamItem>
+                        <span>{teamName}</span>
+                      </S.RecentTeamItem>
+                    ))}
+                    <S.RecentTeamItem onClick={toggleModal}>
+                      <span>팀 생성하기</span>
+                    </S.RecentTeamItem>
+                  </S.RecentTeamList>
+                ) : null}
+              </S.RentalRoomFormRecentTeamListWrapper>
             </div>
           </S.RentalRoomFormNameAndTeam>
           <S.RentalRoomFormRegion>
@@ -87,7 +103,7 @@ const RentalRoom: React.FC<RentalRoomDummyData> = ({
                 ))}
               </S.RentalClasstimeListWrapper>
               <S.RentalBtn>
-                <button onClick={toggleModal}>예약하기</button>
+                <button>예약하기</button>
                 <Arrow />
               </S.RentalBtn>
             </S.RentalClasstimeSelectWrapper>
@@ -98,6 +114,7 @@ const RentalRoom: React.FC<RentalRoomDummyData> = ({
         <RentalModal
           toggleModal={toggleModal}
           TeamPeopleListDummyData={TeamPeopleListDummyData}
+          RecentWordListDummyData={RecentWordListDummyData}
         />
       </ModalPortal>
     </S.Positioner>
@@ -169,7 +186,7 @@ const S = {
 
         color: #000000;
       }
-      input {
+      & > input {
         flex: 0.85;
         border: 2px solid #c3c3c3;
         border-radius: 10px;
@@ -177,6 +194,45 @@ const S = {
         font-size: 25px;
         padding: 14px;
         margin: 5px;
+      }
+    }
+  `,
+  RentalRoomFormRecentTeamListWrapper: styled.div`
+    flex: 0.85;
+    position: relative;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 25px;
+    margin: 5px;
+    & > input {
+      width: calc(100% - 28px);
+      border: 2px solid #c3c3c3;
+      border-radius: 10px;
+      background-color: rgba(0, 0, 0, 0);
+      padding: 14px;
+    }
+  `,
+  RecentTeamList: styled.div`
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    border-radius: 10px;
+    border: 2px solid #c3c3c3;
+    background-color: white;
+    overflow: auto;
+    max-height: 30vh;
+  `,
+  RecentTeamItem: styled.div`
+    padding: 15px 0;
+    border-radius: 10px;
+    width: 100%;
+    span {
+      padding-left: 5px;
+    }
+    &:hover {
+      background-color: #86a8dc;
+      & > span {
+        color: white;
       }
     }
   `,
