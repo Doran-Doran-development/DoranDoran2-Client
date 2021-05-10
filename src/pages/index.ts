@@ -5,5 +5,6 @@ import Mypage from "./Mypage";
 import HomePage from "./HomePage"
 import OutingPage from "./OutingPage"
 import RoomDetailPage from "./RoomDetailPage"
+import RentalRoomPage from "./RentalRoomPage"
 
-export { MainPage, MainRoomPage, MainOutingPage, Mypage, HomePage, OutingPage, RoomDetailPage };
+export { MainPage, MainRoomPage, MainOutingPage, Mypage, HomePage, OutingPage, RoomDetailPage, RentalRoomPage };
