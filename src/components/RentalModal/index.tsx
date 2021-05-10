@@ -50,7 +50,7 @@ const RentalModal: React.FC<RentalModalPropsType> = ({
                 type="text"
                 placeholder="추가할 팀원의 이메일을 입력하세요"
                 onBlur={toggleFocusContent}
-                onClick={toggleFocusContent}
+                onFocus={toggleFocusContent}
               />
               {isFocus ? (
                 <S.InputRecentWordWrapper>

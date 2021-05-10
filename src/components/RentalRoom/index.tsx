@@ -51,12 +51,11 @@ const RentalRoom: React.FC<RentalRoomDummyData> = ({
             </div>
             <div>
               <span>대여 팀</span>
-              <S.RentalRoomFormRecentTeamListWrapper>
-                <input
-                  type="text"
-                  placeholder="대여할 팀을 입력하세요"
-                  onClick={toggleFocusContent}
-                />
+              <S.RentalRoomFormRecentTeamListWrapper
+                onFocus={toggleFocusContent}
+                onBlur={toggleFocusContent}
+              >
+                <input type="text" placeholder="대여할 팀을 입력하세요" />
                 {isFocus ? (
                   <S.RecentTeamList>
                     {Teams.map(({ teamName }) => (
@@ -64,7 +63,7 @@ const RentalRoom: React.FC<RentalRoomDummyData> = ({
                         <span>{teamName}</span>
                       </S.RecentTeamItem>
                     ))}
-                    <S.RecentTeamItem onClick={toggleModal}>
+                    <S.RecentTeamItem onMouseDown={toggleModal}>
                       <span>팀 생성하기</span>
                     </S.RecentTeamItem>
                   </S.RecentTeamList>
@@ -226,6 +225,7 @@ const S = {
     padding: 15px 0;
     border-radius: 10px;
     width: 100%;
+    cursor: pointer;
     span {
       padding-left: 5px;
     }
