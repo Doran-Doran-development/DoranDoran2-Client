@@ -18,7 +18,6 @@ interface TeamPeopleItemType {
   name: string;
   email: string;
 }
-interface RecentTeamItemType {}
 interface RentalRoomDummyData {
   SelectTitleArray: SelectStatusTitleType[];
   ClasstimeItem: number[];
