@@ -58,9 +58,16 @@ const RentalRoom: React.FC<RentalRoomDummyData> = ({
                 {isFocus ? (
                   <S.RecentTeamList>
                     {Teams.map(({ teamName }) => (
-                      <S.RecentTeamItem>
-                        <span>{teamName}</span>
-                      </S.RecentTeamItem>
+                      <>
+                        <S.RecentTeamItem>
+                          <span>{teamName}</span>
+                        </S.RecentTeamItem>
+                        <S.RecentTeamItemPeopleList>
+                          <span>ㅁㄴㅇ</span>
+                          <span>awe</span>
+                          <span>asdasfg</span>
+                        </S.RecentTeamItemPeopleList>
+                      </>
                     ))}
                     <S.RecentTeamItem onMouseDown={toggleModal}>
                       <span>팀 생성하기</span>
@@ -223,8 +230,8 @@ const S = {
   RecentTeamItem: styled.div`
     padding: 15px 0;
     border-radius: 10px;
-    width: 100%;
     cursor: pointer;
+    width: 100%;
     span {
       padding-left: 5px;
     }
@@ -234,6 +241,13 @@ const S = {
         color: white;
       }
     }
+  `,
+  RecentTeamItemPeopleList: styled.div`
+    width: 80%;
+    position: absolute;
+    margin-left: 10vw;
+    z-index: 2;
+    background-color: #fff;
   `,
   RentalRoomFormRegion: styled.div`
     display: flex;
