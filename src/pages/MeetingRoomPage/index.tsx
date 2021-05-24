@@ -1,4 +1,5 @@
 import { Header } from "components";
+import { MeetingRoomContainer } from "container";
 import React from "react";
 import styled from "styled-components";
 
@@ -6,7 +7,7 @@ const MeetingRoomPage: React.FC = () => {
   return (
     <S.Positioner>
       <Header />
-      <div>hi</div>
+      <MeetingRoomContainer />
     </S.Positioner>
   );
 };
