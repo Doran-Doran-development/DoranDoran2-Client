@@ -48,18 +48,14 @@ const RoomDetail: React.FC = () => {
         </S.RoomDetailInfoWrapper>
         <S.RoomDetailWrapper>
           <S.RoomInfoTitle>회의실 세부정보</S.RoomInfoTitle>
-          <S.RoomDetailArticle>
-            편의시설 구비 : 회의를 세부적으로 할 수 있는 칠판과 보드마카 구비,
-            넓은 책상과 등받이 의자 및 칸막이, 콘센트구비
-          </S.RoomDetailArticle>
+          <S.RoomDetailArticle>편의시설 구비 : 회의를 세부적으로 할 수 있는 칠판과 보드마카 구비, 넓은 책상과 등받이 의자 및 칸막이, 콘센트구비</S.RoomDetailArticle>
         </S.RoomDetailWrapper>
         <S.RoomDetailWrapper>
           <S.RoomInfoTitle>회의실 규칙</S.RoomInfoTitle>
           <S.RoomDetailArticle>
             1. 모든 회의 및 사용이 종료시 콘센트 정리 및 칠판 정리하기. <br />
             2. 옆 회의실이나 반이 방해되지 않도록 조용히 하기. <br />
-            3. 각 회의실에는 회의가능 팀에 소속된 인원을 제외한 다른 인원
-            출입금지.
+            3. 각 회의실에는 회의가능 팀에 소속된 인원을 제외한 다른 인원 출입금지.
             <br />
           </S.RoomDetailArticle>
         </S.RoomDetailWrapper>
@@ -89,15 +85,13 @@ const S = {
 
       color: #ffffff;
 
-      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
-        0px 4px 4px rgba(0, 0, 0, 0.25);
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
       border-bottom: 3px solid #ffffff;
     }
   `,
   RoomInfoTitleWrapper: styled.div`
     width: 70%;
     display: flex;
-    flex-direction: row;
     align-items: center;
     & > div#image {
       width: 89px;
@@ -135,6 +129,8 @@ const S = {
     margin: 0 auto;
     flex-direction: column;
     align-self: center;
+    align-items: center;
+    justify-content: center;
   `,
   RoomInfoTitle: styled.span`
     margin: 76px 0;
