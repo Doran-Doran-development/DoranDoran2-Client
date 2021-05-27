@@ -12,6 +12,7 @@ import RentalModal from "./RentalModal"
 import ModalPortal from "./ModalPortal";
 import Login from "./Login"
 import Signup from "./Signup"
+import AdminEscape from "./AdminEscape"
 
 export {
     MainHeader,
@@ -28,4 +29,5 @@ export {
     ModalPortal,
     Login,
     Signup,
+    AdminEscape
 };

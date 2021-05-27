@@ -8,6 +8,7 @@ import RoomDetailPage from "./RoomDetailPage"
 import RentalRoomPage from "./RentalRoomPage"
 import LoginPage from "./LoginPage"
 import SignupPage from "./SignupPage"
+import AdminEscapePage from "./AdminEscapePage"
 
 export {
     MainPage,
@@ -20,4 +21,5 @@ export {
     RentalRoomPage,
     LoginPage,
     SignupPage,
+    AdminEscapePage
 };
