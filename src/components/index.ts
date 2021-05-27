@@ -10,5 +10,24 @@ import RoomDetail from "./RoomDetail"
 import RentalRoom from "./RentalRoom"
 import RentalModal from "./RentalModal"
 import ModalPortal from "./ModalPortal";
+import Login from "./Login"
+import Signup from "./Signup"
+import AdminEscape from "./AdminEscape"
 
-export { MainHeader, Main, MainRoom, MainOuting, Header, Mypage, Home, Outing, RoomDetail, RentalRoom, RentalModal, ModalPortal };
+export {
+    MainHeader,
+    Main,
+    MainRoom,
+    MainOuting,
+    Header,
+    Mypage,
+    Home,
+    Outing,
+    RoomDetail,
+    RentalRoom,
+    RentalModal,
+    ModalPortal,
+    Login,
+    Signup,
+    AdminEscape
+};

@@ -1,15 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import {
-  HomePage,
-  MainOutingPage,
-  MainPage,
-  MainRoomPage,
-  Mypage,
-  OutingPage,
-  RentalRoomPage,
-  RoomDetailPage,
-} from "pages";
+import { AdminEscapePage, HomePage, LoginPage, MainOutingPage, MainPage, MainRoomPage, Mypage, OutingPage, RentalRoomPage, RoomDetailPage, SignupPage } from "pages";
 
 const App: React.FC = () => {
   return (
@@ -22,6 +13,9 @@ const App: React.FC = () => {
       <Route path="/outing" component={OutingPage} />
       <Route path="/room/:roomdetail" component={RoomDetailPage} />
       <Route path="/rental/:roomname" component={RentalRoomPage} />
+      <Route path="/login" component={LoginPage} />
+      <Route path="/signup" component={SignupPage} />
+      <Route path="/escape" component={AdminEscapePage} />
     </>
   );
 };
