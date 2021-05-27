@@ -10,6 +10,7 @@ import RoomDetail from "./RoomDetail"
 import RentalRoom from "./RentalRoom"
 import RentalModal from "./RentalModal"
 import ModalPortal from "./ModalPortal";
+import Login from "./Login"
 import Signup from "./Signup"
 
 export {
@@ -25,5 +26,6 @@ export {
     RentalRoom,
     RentalModal,
     ModalPortal,
+    Login,
     Signup,
 };
