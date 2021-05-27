@@ -1,19 +1,55 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Logo } from "../../assets";
 
+const NonMember = () => {
+  return (
+    <>
+      <S.HeaderLink to="/login">로그인</S.HeaderLink>
+      <S.HeaderLink to="/signup">회원가입</S.HeaderLink>
+    </>
+  );
+};
+
+const MemberStudent = () => {
+  const handleLogout = () => {
+    sessionStorage.clear();
+  };
+  return (
+    <>
+      <S.HeaderLink to="/Home">회의실 목록보기</S.HeaderLink>
+      <S.HeaderLink to="/outing">외출 신청하기</S.HeaderLink>
+      <S.HeaderLink to="/mypage">마이페이지</S.HeaderLink>
+      <S.HeaderLink to="/" onClick={handleLogout} id="logout">
+        로그아웃
+      </S.HeaderLink>
+    </>
+  );
+};
+const MemberTeacher = () => {
+  const handleLogout = () => {
+    sessionStorage.clear();
+  };
+  return (
+    <>
+      <S.HeaderLink to="/Home">회의실 목록보기</S.HeaderLink>
+      <S.HeaderLink to="/escape">외출 관리하기</S.HeaderLink>
+      <S.HeaderLink to="/mypage">마이페이지</S.HeaderLink>
+      <S.HeaderLink to="/" onClick={handleLogout} id="logout">
+        로그아웃
+      </S.HeaderLink>
+    </>
+  );
+};
 const Header: React.FC = () => {
+  const token = window.sessionStorage.getItem("dorandoran_token") || true;
   return (
     <S.Positioner>
       <S.LogoWrapper>
         <Logo width={51} height={51} />
       </S.LogoWrapper>
-      <S.ContentWrapper>
-        <span>회의실 목록보기</span>
-        <span>외출 신청하기</span>
-        <span>마이페이지</span>
-        <span>로그아웃</span>
-      </S.ContentWrapper>
+      <S.ContentWrapper>{token ? <MemberStudent /> : <NonMember />}</S.ContentWrapper>
     </S.Positioner>
   );
 };
@@ -35,18 +71,20 @@ const S = {
   `,
   ContentWrapper: styled.div`
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    flex: 0.35;
+    justify-content: flex-end;
+    flex: 0.5;
     padding-right: 10rem;
-    span {
-      font-size: 22px;
-      font-weight: 400;
-      color: #878787;
+  `,
+  HeaderLink: styled(Link)`
+    margin: 0px 2vw;
+    &#logout {
+      color: #566fc9;
     }
-    span:nth-child(4) {
-      color: #788dda;
-    }
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: 400;
+    color: #878787;
   `,
 };
 
