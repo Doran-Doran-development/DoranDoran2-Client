@@ -1,27 +1,32 @@
 import * as React from "react";
 
-const Search = () => {
+type SearchProps = {
+  width: number;
+  height: number;
+};
+
+const Search = ({ width, height }: SearchProps) => {
   return (
     <svg
-      width={32}
-      height={32}
+      width={width}
+      height={height}
       viewBox="0 0 32 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
     >
-      <path fill="url(#prefix__pattern0)" d="M0 0h32v32H0z" />
+      <path fill="url(#search__pattern0)" d="M0 0h32v32H0z" />
       <defs>
         <pattern
-          id="prefix__pattern0"
+          id="search__pattern0"
           patternContentUnits="objectBoundingBox"
           width={1}
           height={1}
         >
-          <use xlinkHref="#prefix__image0" transform="scale(.00195)" />
+          <use xlinkHref="#search__image0" transform="scale(.00195)" />
         </pattern>
         <image
-          id="prefix__image0"
+          id="search__image0"
           width={512}
           height={512}
           xlinkHref={
@@ -31,6 +36,11 @@ const Search = () => {
       </defs>
     </svg>
   );
+};
+
+Search.defaultProps = {
+  width: 32,
+  height: 32,
 };
 
 export default Search;

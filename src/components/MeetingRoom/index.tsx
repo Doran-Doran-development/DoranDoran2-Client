@@ -1,4 +1,4 @@
-import { FilterIcon } from "assets";
+import { FilterIcon, Search } from "assets";
 import React from "react";
 import styled from "styled-components";
 
@@ -12,6 +12,7 @@ const MeetingRoom: React.FC = () => {
             <FilterIcon />
             <S.SearchBar>
               <input placeholder="검색.." />
+              <Search />
             </S.SearchBar>
           </S.SearchBarWrapper>
         </S.HeaderBox>
@@ -66,7 +67,7 @@ const S = {
     margin-left: 12px;
 
     input {
-      width: 90%;
+      width: 81%;
       height: 40px;
       padding-left: 15px;
       border: 0;
