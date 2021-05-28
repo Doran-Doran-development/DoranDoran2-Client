@@ -11,6 +11,7 @@ import RentalRoom from "./RentalRoom";
 import RentalModal from "./RentalModal";
 import ModalPortal from "./ModalPortal";
 import MeetingRoom from "./MeetingRoom";
+import MeetingRoomItem from "./MeetingRoomItem";
 
 export {
   MainHeader,
@@ -26,4 +27,5 @@ export {
   RentalModal,
   ModalPortal,
   MeetingRoom,
+  MeetingRoomItem,
 };
