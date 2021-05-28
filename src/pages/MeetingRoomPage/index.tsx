@@ -1,4 +1,4 @@
-import { Header } from "components";
+import { Footer, Header } from "components";
 import { MeetingRoomContainer } from "container";
 import React from "react";
 import styled from "styled-components";
@@ -8,6 +8,7 @@ const MeetingRoomPage: React.FC = () => {
     <S.Positioner>
       <Header />
       <MeetingRoomContainer />
+      <Footer />
     </S.Positioner>
   );
 };
