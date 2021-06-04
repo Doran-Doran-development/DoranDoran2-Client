@@ -1,11 +1,11 @@
+import { LoginContainer } from "container";
 import React from "react";
 import styled from "styled-components";
-import { Login } from "../../components";
 
 const LoginPage: React.FC = () => {
   return (
     <S.Positioner>
-      <Login />
+      <LoginContainer />
     </S.Positioner>
   );
 };
