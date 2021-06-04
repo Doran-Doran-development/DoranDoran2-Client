@@ -1,11 +1,11 @@
-import { Signup } from "components";
+import { SignupContainer } from "container";
 import React from "react";
 import styled from "styled-components";
 
 const SignupPage: React.FC = () => {
   return (
     <S.Positioner>
-      <Signup />
+      <SignupContainer />
     </S.Positioner>
   );
 };
