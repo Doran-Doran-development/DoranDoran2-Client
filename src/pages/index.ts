@@ -9,7 +9,7 @@ import MeetingRoomPage from "./MeetingRoomPage";
 import MainPage from "./MainPage";
 import MainRoomPage from "./MainRoomPage";
 import MainOutingPage from "./MainOutingPage";
-import MyPage from "./Mypage";
+import MyPage from "./MyPage";
 
 export {
   MainPage,

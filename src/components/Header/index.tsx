@@ -49,7 +49,9 @@ const Header: React.FC = () => {
       <S.LogoWrapper>
         <Logo width={51} height={51} />
       </S.LogoWrapper>
-      <S.ContentWrapper>{token ? <MemberStudent /> : <NonMember />}</S.ContentWrapper>
+      <S.ContentWrapper>
+        {token ? <MemberStudent /> : <NonMember />}
+      </S.ContentWrapper>
     </S.Positioner>
   );
 };
@@ -73,7 +75,7 @@ const S = {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    flex: 0.5;
+    flex: 0.6;
     padding-right: 10rem;
   `,
   HeaderLink: styled(Link)`
