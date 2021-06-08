@@ -26,13 +26,7 @@ interface RentalRoomDummyData {
   Teams: RentalTeamType[];
 }
 
-const RentalRoom: React.FC<RentalRoomDummyData> = ({
-  SelectTitleArray,
-  ClasstimeItem,
-  TeamPeopleListDummyData,
-  RecentWordListDummyData,
-  Teams,
-}) => {
+const RentalRoom: React.FC<RentalRoomDummyData> = ({ SelectTitleArray, ClasstimeItem, TeamPeopleListDummyData, RecentWordListDummyData, Teams }) => {
   const { isShow, toggleModal } = useModal();
   const { isFocus, toggleFocusContent } = useFocusContent();
   return (
@@ -50,10 +44,7 @@ const RentalRoom: React.FC<RentalRoomDummyData> = ({
             </div>
             <div>
               <span>대여 팀</span>
-              <S.RentalRoomFormRecentTeamListWrapper
-                onFocus={toggleFocusContent}
-                onBlur={toggleFocusContent}
-              >
+              <S.RentalRoomFormRecentTeamListWrapper onFocus={toggleFocusContent} onBlur={toggleFocusContent}>
                 <input type="text" placeholder="대여할 팀을 입력하세요" />
                 {isFocus ? (
                   <S.RecentTeamList>
@@ -87,10 +78,7 @@ const RentalRoom: React.FC<RentalRoomDummyData> = ({
               <S.RentalSelectTitle>
                 {SelectTitleArray.map(({ text, background, border }) => (
                   <>
-                    <S.RentalSelectTitleItem
-                      background={background}
-                      border={border}
-                    />
+                    <S.RentalSelectTitleItem background={background} border={border} />
                     <span>{text}</span>
                   </>
                 ))}
@@ -99,10 +87,7 @@ const RentalRoom: React.FC<RentalRoomDummyData> = ({
             <S.RentalClasstimeSelectWrapper>
               <S.RentalClasstimeListWrapper>
                 {ClasstimeItem.map((item, index) => (
-                  <S.RentalClasstimeItem
-                    background={SelectTitleArray[item].background}
-                    border={SelectTitleArray[item].border}
-                  >
+                  <S.RentalClasstimeItem background={SelectTitleArray[item].background} border={SelectTitleArray[item].border}>
                     {index + 1}
                   </S.RentalClasstimeItem>
                 ))}
@@ -116,11 +101,7 @@ const RentalRoom: React.FC<RentalRoomDummyData> = ({
         </S.RentalRoomFormWrapper>
       </S.Wrapper>
       <ModalPortal isShow={isShow}>
-        <RentalModal
-          toggleModal={toggleModal}
-          TeamPeopleListDummyData={TeamPeopleListDummyData}
-          RecentWordListDummyData={RecentWordListDummyData}
-        />
+        <RentalModal toggleModal={toggleModal} TeamPeopleListDummyData={TeamPeopleListDummyData} RecentWordListDummyData={RecentWordListDummyData} />
       </ModalPortal>
     </S.Positioner>
   );
@@ -154,8 +135,7 @@ const S = {
 
       color: #ffffff;
 
-      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
-        0px 4px 4px rgba(0, 0, 0, 0.25);
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
       border-bottom: 3px solid #ffffff;
     }
   `,
@@ -337,8 +317,8 @@ const S = {
     width: 16px;
     height: 16px;
     border-radius: 3px;
-    background-color: ${(props) => props.background};
-    border: 2px solid ${(props) => props.border};
+    background-color: ${props => props.background};
+    border: 2px solid ${props => props.border};
     margin: 0 11px;
   `,
   RentalClasstimeSelectWrapper: styled.div`
@@ -354,9 +334,9 @@ const S = {
     font-size: 25px;
     margin: 25px;
     cursor: pointer;
-    color: ${(props) => (props.background === "#FFFFFF" ? "#86A8DC" : "white")};
-    background-color: ${(props) => props.background};
-    border: 2px solid ${(props) => props.border};
+    color: ${props => (props.background === "#FFFFFF" ? "#86A8DC" : "white")};
+    background-color: ${props => props.background};
+    border: 2px solid ${props => props.border};
     border-radius: 3px;
   `,
 };

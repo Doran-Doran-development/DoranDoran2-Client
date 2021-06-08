@@ -3,20 +3,29 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const Login: React.FC = () => {
+interface Props {
+  email: string;
+  password: string;
+  setEmail: (email: string) => void;
+  setPassword: (password: string) => void;
+  handleLogin: () => void;
+}
+
+const Login: React.FC<Props> = props => {
+  const { email, password, setEmail, setPassword, handleLogin } = props;
   return (
     <S.Positioner>
       <S.IconWrapper>
         <Logo width={100} height={100} />
       </S.IconWrapper>
       <S.InputWrapper>
-        <input type="text" placeholder="이메일" />
-        <input type="password" placeholder="비밀번호" />
+        <input type="text" placeholder="이메일" value={email} onChange={e => setEmail(e.target.value)} />
+        <input type="password" placeholder="비밀번호" value={password} onChange={e => setPassword(e.target.value)} />
         <span>
           계정이 없으신가요? <Link to="/signup">회원가입</Link>
         </span>
       </S.InputWrapper>
-      <S.SubmitBtnWrapper>
+      <S.SubmitBtnWrapper onClick={handleLogin}>
         <span>로그인</span>
       </S.SubmitBtnWrapper>
     </S.Positioner>
@@ -78,6 +87,7 @@ const S = {
     text-align: center;
     align-self: flex-end;
     margin: 3vh;
+    cursor: pointer;
     & > span {
       font-style: normal;
       font-weight: normal;

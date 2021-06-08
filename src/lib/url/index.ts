@@ -5,10 +5,6 @@ const REST_DEFAULT_URL = {
 }
 const { accounts, escapes, users } = REST_DEFAULT_URL;
 export const ACCOUNTS = {
-    activeRead: (uidb64, token) => {
-        return `${accounts}activate/${uidb64}/${token}`
-    }
-    ,
     login: () => {
         return `${accounts}login`
     }
@@ -19,13 +15,13 @@ export const ESCAPES = {
     escape: () => {
         return `${escapes}`
     },
-    escapeDelete: (id) => {
+    escapeDelete: (id : number) => {
         return `${escapes}${id}`
     },
-    escapeAccept: (id) => {
+    escapeAccept: (id :number) => {
         return `${escapes}${id}/accept`
     },
-    escapeDeny: (id) => {
+    escapeDeny: (id :number) => {
         return `${escapes}${id}/deny`
     }
 }
@@ -43,11 +39,11 @@ export const USERS = {
         return `${USER_TEACHER}`
     },
     //GET - studentInfo, DELETE - studentDelete
-    studentInfo: (user_id) => {
+    studentInfo: (user_id : string) => {
         return `${USER_STUDENT}/${user_id}`
     },
     //GET - teacherInfo, DELETE - teacherDelete
-    teacherInfo: (user_id) => {
+    teacherInfo: (user_id : string) => {
         return `${USER_TEACHER}/${user_id}`
     }
 }
