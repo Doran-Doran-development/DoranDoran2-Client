@@ -4,21 +4,15 @@ import styled from "styled-components";
 import RentalRoomBackground from "assets/background/RoomDetailBackground.png";
 import { ModalPortal, RentalModal } from "components";
 import useModal from "hooks/useModal";
-
+import useFocusContent from "hooks/useFocusContent";
 interface SelectStatusTitleType {
   text: string;
   background: string;
   border: string;
 }
-
-interface TeamPeopleType {
-  name: string;
-  email: string;
-}
-
 interface RentalTeamType {
   teamName: string;
-  teamPeople: TeamPeopleType[];
+  teamPeople: TeamPeopleItemType[];
 }
 interface TeamPeopleItemType {
   name: string;
@@ -28,16 +22,13 @@ interface RentalRoomDummyData {
   SelectTitleArray: SelectStatusTitleType[];
   ClasstimeItem: number[];
   TeamPeopleListDummyData: TeamPeopleItemType[];
+  RecentWordListDummyData: TeamPeopleItemType[];
   Teams: RentalTeamType[];
 }
 
-const RentalRoom: React.FC<RentalRoomDummyData> = ({
-  SelectTitleArray,
-  ClasstimeItem,
-  TeamPeopleListDummyData,
-  Teams,
-}) => {
+const RentalRoom: React.FC<RentalRoomDummyData> = ({ SelectTitleArray, ClasstimeItem, TeamPeopleListDummyData, RecentWordListDummyData, Teams }) => {
   const { isShow, toggleModal } = useModal();
+  const { isFocus, toggleFocusContent } = useFocusContent();
   return (
     <S.Positioner>
       <S.Background>
@@ -53,7 +44,28 @@ const RentalRoom: React.FC<RentalRoomDummyData> = ({
             </div>
             <div>
               <span>대여 팀</span>
-              <input type="text" placeholder="대여할 팀을 입력하세요" />
+              <S.RentalRoomFormRecentTeamListWrapper onFocus={toggleFocusContent} onBlur={toggleFocusContent}>
+                <input type="text" placeholder="대여할 팀을 입력하세요" />
+                {isFocus ? (
+                  <S.RecentTeamList>
+                    {Teams.map(({ teamName }) => (
+                      <>
+                        <S.RecentTeamItem>
+                          <span>{teamName}</span>
+                        </S.RecentTeamItem>
+                        <S.RecentTeamItemPeopleList>
+                          <span>ㅁㄴㅇ</span>
+                          <span>awe</span>
+                          <span>asdasfg</span>
+                        </S.RecentTeamItemPeopleList>
+                      </>
+                    ))}
+                    <S.RecentTeamItem onMouseDown={toggleModal}>
+                      <span>팀 생성하기</span>
+                    </S.RecentTeamItem>
+                  </S.RecentTeamList>
+                ) : null}
+              </S.RentalRoomFormRecentTeamListWrapper>
             </div>
           </S.RentalRoomFormNameAndTeam>
           <S.RentalRoomFormRegion>
@@ -66,10 +78,7 @@ const RentalRoom: React.FC<RentalRoomDummyData> = ({
               <S.RentalSelectTitle>
                 {SelectTitleArray.map(({ text, background, border }) => (
                   <>
-                    <S.RentalSelectTitleItem
-                      background={background}
-                      border={border}
-                    />
+                    <S.RentalSelectTitleItem background={background} border={border} />
                     <span>{text}</span>
                   </>
                 ))}
@@ -78,16 +87,13 @@ const RentalRoom: React.FC<RentalRoomDummyData> = ({
             <S.RentalClasstimeSelectWrapper>
               <S.RentalClasstimeListWrapper>
                 {ClasstimeItem.map((item, index) => (
-                  <S.RentalClasstimeItem
-                    background={SelectTitleArray[item].background}
-                    border={SelectTitleArray[item].border}
-                  >
+                  <S.RentalClasstimeItem background={SelectTitleArray[item].background} border={SelectTitleArray[item].border}>
                     {index + 1}
                   </S.RentalClasstimeItem>
                 ))}
               </S.RentalClasstimeListWrapper>
               <S.RentalBtn>
-                <button onClick={toggleModal}>예약하기</button>
+                <button>예약하기</button>
                 <Arrow />
               </S.RentalBtn>
             </S.RentalClasstimeSelectWrapper>
@@ -95,10 +101,7 @@ const RentalRoom: React.FC<RentalRoomDummyData> = ({
         </S.RentalRoomFormWrapper>
       </S.Wrapper>
       <ModalPortal isShow={isShow}>
-        <RentalModal
-          toggleModal={toggleModal}
-          TeamPeopleListDummyData={TeamPeopleListDummyData}
-        />
+        <RentalModal toggleModal={toggleModal} TeamPeopleListDummyData={TeamPeopleListDummyData} RecentWordListDummyData={RecentWordListDummyData} />
       </ModalPortal>
     </S.Positioner>
   );
@@ -132,8 +135,7 @@ const S = {
 
       color: #ffffff;
 
-      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
-        0px 4px 4px rgba(0, 0, 0, 0.25);
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
       border-bottom: 3px solid #ffffff;
     }
   `,
@@ -169,7 +171,7 @@ const S = {
 
         color: #000000;
       }
-      input {
+      & > input {
         flex: 0.85;
         border: 2px solid #c3c3c3;
         border-radius: 10px;
@@ -179,6 +181,53 @@ const S = {
         margin: 5px;
       }
     }
+  `,
+  RentalRoomFormRecentTeamListWrapper: styled.div`
+    flex: 0.85;
+    position: relative;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 25px;
+    margin: 5px;
+    & > input {
+      width: calc(100% - 28px);
+      border: 2px solid #c3c3c3;
+      border-radius: 10px;
+      background-color: rgba(0, 0, 0, 0);
+      padding: 14px;
+    }
+  `,
+  RecentTeamList: styled.div`
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    border-radius: 10px;
+    border: 2px solid #c3c3c3;
+    background-color: white;
+    overflow: auto;
+    max-height: 30vh;
+  `,
+  RecentTeamItem: styled.div`
+    padding: 15px 0;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    span {
+      padding-left: 5px;
+    }
+    &:hover {
+      background-color: #86a8dc;
+      & > span {
+        color: white;
+      }
+    }
+  `,
+  RecentTeamItemPeopleList: styled.div`
+    width: 80%;
+    position: absolute;
+    margin-left: 10vw;
+    z-index: 2;
+    background-color: #fff;
   `,
   RentalRoomFormRegion: styled.div`
     display: flex;
@@ -268,8 +317,8 @@ const S = {
     width: 16px;
     height: 16px;
     border-radius: 3px;
-    background-color: ${(props) => props.background};
-    border: 2px solid ${(props) => props.border};
+    background-color: ${props => props.background};
+    border: 2px solid ${props => props.border};
     margin: 0 11px;
   `,
   RentalClasstimeSelectWrapper: styled.div`
@@ -285,9 +334,9 @@ const S = {
     font-size: 25px;
     margin: 25px;
     cursor: pointer;
-    color: ${(props) => (props.background === "#FFFFFF" ? "#86A8DC" : "white")};
-    background-color: ${(props) => props.background};
-    border: 2px solid ${(props) => props.border};
+    color: ${props => (props.background === "#FFFFFF" ? "#86A8DC" : "white")};
+    background-color: ${props => props.background};
+    border: 2px solid ${props => props.border};
     border-radius: 3px;
   `,
 };

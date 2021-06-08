@@ -17,13 +17,7 @@ interface PersonType {
   etc: string;
 }
 
-const ClassItem: React.FC<ClassType> = ({
-  grade,
-  classnum,
-  teacher,
-  currentPerson,
-  personCount,
-}) => {
+const ClassItem: React.FC<ClassType> = ({ grade, classnum, teacher, currentPerson, personCount }) => {
   return (
     <S.ClassItemWrapper>
       <S.ClassInfoWrapper>
@@ -42,18 +36,13 @@ const ClassItem: React.FC<ClassType> = ({
     </S.ClassItemWrapper>
   );
 };
-const PersonStatusItem: React.FC<PersonType> = ({
-  classnum,
-  name,
-  status,
-  etc,
-}) => {
+const PersonStatusItem: React.FC<PersonType> = ({ classnum, name, status, etc }) => {
   return (
     <S.PersonStatusListItemWrapper>
       <span>{classnum}</span>
       <span>{name}</span>
       <span>교실</span>
-      <span>돌</span>
+      <span>{etc}</span>
     </S.PersonStatusListItemWrapper>
   );
 };
@@ -81,7 +70,7 @@ const Home: React.FC<HomeType> = ({ ClassList, PersonStatusList }) => {
         </S.SearchWrapper>
         <S.ClassStatusWrapper>
           <S.ClassListWrapper>
-            {ClassList.map((item) => (
+            {ClassList.map(item => (
               <ClassItem {...item} />
             ))}
           </S.ClassListWrapper>
@@ -93,7 +82,7 @@ const Home: React.FC<HomeType> = ({ ClassList, PersonStatusList }) => {
               <span>기타</span>
             </S.PersonStatusListTitleWrapper>
             <S.PersonStatusListContainer>
-              {PersonStatusList.map((item) => (
+              {PersonStatusList.map(item => (
                 <PersonStatusItem {...item} />
               ))}
             </S.PersonStatusListContainer>
@@ -110,6 +99,7 @@ const S = {
     height: calc(100% - 90px);
     display: flex;
     justify-content: center;
+    background-color: #f7f9fb;
   `,
   Wrapper: styled.div`
     width: 90%;

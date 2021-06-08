@@ -61,12 +61,14 @@ const TeamPeopleListDummyData = [
   { name: "신원준", email: "s19053@gsm.hs.kr" },
   { name: "신원준", email: "s19053@gsm.hs.kr" },
 ];
+const RecentWordListDummyData = TeamPeopleListDummyData;
 const RentalRoomContainer: React.FC = () => {
   return (
     <RentalRoom
       SelectTitleArray={SelectTitleArray}
       ClasstimeItem={ClasstimeItem}
       TeamPeopleListDummyData={TeamPeopleListDummyData}
+      RecentWordListDummyData={RecentWordListDummyData}
       Teams={Teams}
     />
   );
