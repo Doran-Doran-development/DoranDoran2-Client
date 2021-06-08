@@ -18,7 +18,7 @@ interface RoomWaitList {
   WaitRoomDummyData: RoomWaitItemType[];
 }
 
-const Mypage: React.FC<RoomWaitList> = ({ WaitRoomDummyData }) => {
+const MyPage: React.FC<RoomWaitList> = ({ WaitRoomDummyData }) => {
   return (
     <S.Positioner>
       <S.BackgroundWrapper>
@@ -75,4 +75,4 @@ const S = {
   `,
 };
 
-export default Mypage;
+export default MyPage;

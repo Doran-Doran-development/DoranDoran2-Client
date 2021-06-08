@@ -8,7 +8,7 @@ import {
   MainPage,
   MainRoomPage,
   MeetingRoomPage,
-  Mypage,
+  MyPage,
   OutingPage,
   RentalRoomPage,
   RoomDetailPage,
@@ -24,7 +24,7 @@ const App: React.FC = () => {
           <Route exact path="/" component={MainPage} />
           <Route exact path="/" component={MainRoomPage} />
           <Route exact path="/" component={MainOutingPage} />
-          <Route path="/mypage" component={Mypage} />
+          <Route path="/mypage" component={MyPage} />
           <Route path="/home" component={HomePage} />
           <Route path="/outing" component={OutingPage} />
           <Route path="/conference" component={MeetingRoomPage} />

@@ -9,13 +9,13 @@ import MeetingRoomPage from "./MeetingRoomPage";
 import MainPage from "./MainPage";
 import MainRoomPage from "./MainRoomPage";
 import MainOutingPage from "./MainOutingPage";
-import Mypage from "./Mypage";
+import MyPage from "./Mypage";
 
 export {
   MainPage,
   MainRoomPage,
   MainOutingPage,
-  Mypage,
+  MyPage,
   HomePage,
   OutingPage,
   RoomDetailPage,

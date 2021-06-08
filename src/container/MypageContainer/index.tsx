@@ -1,4 +1,4 @@
-import { Mypage } from "components";
+import { MyPage } from "components";
 import React from "react";
 const WaitRoomDummyData = [
   {
@@ -154,7 +154,7 @@ const WaitRoomDummyData = [
 ];
 
 const MypageContainer: React.FC = () => {
-  return <Mypage WaitRoomDummyData={WaitRoomDummyData} />;
+  return <MyPage WaitRoomDummyData={WaitRoomDummyData} />;
 };
 
 export default MypageContainer;

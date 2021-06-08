@@ -3,7 +3,7 @@ import Main from "./Main";
 import MainRoom from "./MainRoom";
 import MainOuting from "./MainOuting";
 import Header from "./Header";
-import Mypage from "./Mypage";
+import MyPage from "./Mypage";
 import Home from "./Home";
 import Outing from "./Outing";
 import RoomDetail from "./RoomDetail";
@@ -23,7 +23,7 @@ export {
   MainRoom,
   MainOuting,
   Header,
-  Mypage,
+  MyPage,
   Home,
   Outing,
   RoomDetail,

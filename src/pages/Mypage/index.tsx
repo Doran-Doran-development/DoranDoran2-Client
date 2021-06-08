@@ -3,7 +3,7 @@ import { MypageContainer } from "container";
 import React from "react";
 import styled from "styled-components";
 
-const Mypage: React.FC = () => {
+const MyPage: React.FC = () => {
   return (
     <Positioner>
       <Header />
@@ -17,4 +17,4 @@ const Positioner = styled.div`
   height: 100vh;
   background-color: #f7f9fb;
 `;
-export default Mypage;
+export default MyPage;
