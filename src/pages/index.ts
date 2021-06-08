@@ -1,7 +1,3 @@
-import MainPage from "./MainPage";
-import MainRoomPage from "./MainRoomPage";
-import MainOutingPage from "./MainOutingPage";
-import Mypage from "./Mypage";
 import HomePage from "./HomePage"
 import OutingPage from "./OutingPage"
 import RoomDetailPage from "./RoomDetailPage"
@@ -9,6 +5,7 @@ import RentalRoomPage from "./RentalRoomPage"
 import LoginPage from "./LoginPage"
 import SignupPage from "./SignupPage"
 import AdminEscapePage from "./AdminEscapePage"
+import MeetingRoomPage from "./MeetingRoomPage";
 
 export {
     MainPage,
@@ -21,5 +18,6 @@ export {
     RentalRoomPage,
     LoginPage,
     SignupPage,
-    AdminEscapePage
+    AdminEscapePage,
+    MeetingRoomPage
 };
