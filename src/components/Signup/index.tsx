@@ -1,7 +1,6 @@
 import { Logo } from "assets";
 import React, { useState } from "react";
 import styled from "styled-components";
-import { setTokenSourceMapRange } from "typescript";
 
 interface Props {
   name: string;
@@ -21,8 +20,24 @@ interface Props {
   handleSignup: () => void;
 }
 
-const Signup: React.FC<Props> = props => {
-  const { name, email, password, rePassword, grade, homeroom, certification_code, setName, setEmail, setPassword, setRepassword, setCertificaionCode, setGrade, setHomeroom, handleSignup } = props;
+const Signup: React.FC<Props> = (props) => {
+  const {
+    name,
+    email,
+    password,
+    rePassword,
+    grade,
+    homeroom,
+    certification_code,
+    setName,
+    setEmail,
+    setPassword,
+    setRepassword,
+    setCertificaionCode,
+    setGrade,
+    setHomeroom,
+    handleSignup,
+  } = props;
   const [isChecked, toggleChecked] = useState<boolean>(false);
   const handleToggle = () => {
     toggleChecked(!isChecked);
@@ -35,20 +50,55 @@ const Signup: React.FC<Props> = props => {
           <Logo width={100} height={100} />
         </S.IconWrapper>
         <S.InputWrapper>
-          <input type="text" placeholder="이름" value={name} onChange={e => setName(e.target.value)} />
-          <input type="text" placeholder="이메일" value={email} onChange={e => setEmail(e.target.value)} />
-          <input type="password" placeholder="비밀번호" value={password} onChange={e => setPassword(e.target.value)} />
-          <input type="password" placeholder="비밀번호 확인" value={rePassword} onChange={e => setRepassword(e.target.value)} />
+          <input
+            type="text"
+            placeholder="이름"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="이메일"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="비밀번호"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="비밀번호 확인"
+            value={rePassword}
+            onChange={(e) => setRepassword(e.target.value)}
+          />
           <label>
             <input type="checkbox" checked={isChecked} onClick={handleToggle} />
             선생님이십니까?
           </label>
           {isChecked ? (
             <S.TeacherWrapper>
-              <input type="text" placeholder="인증코드" value={certification_code} onChange={e => setCertificaionCode(e.target.value)} />
+              <input
+                type="text"
+                placeholder="인증코드"
+                value={certification_code}
+                onChange={(e) => setCertificaionCode(e.target.value)}
+              />
               <S.ClassInputWrapper>
-                <input type="number" placeholder="학년" value={grade} onChange={e => setGrade(parseInt(e.target.value))} />
-                <input type="number" placeholder="반" value={homeroom} onChange={e => setHomeroom(parseInt(e.target.value))} />
+                <input
+                  type="number"
+                  placeholder="학년"
+                  value={grade}
+                  onChange={(e) => setGrade(parseInt(e.target.value))}
+                />
+                <input
+                  type="number"
+                  placeholder="반"
+                  value={homeroom}
+                  onChange={(e) => setHomeroom(parseInt(e.target.value))}
+                />
               </S.ClassInputWrapper>
               <span>담임이 아니시라면 학년 반을 0으로 설정 해주세요</span>
             </S.TeacherWrapper>

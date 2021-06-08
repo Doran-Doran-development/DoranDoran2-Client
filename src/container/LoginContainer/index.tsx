@@ -10,7 +10,7 @@ const LoginContainer = withRouter(({ history }) => {
   const [password, setPassword] = useState<string>("");
   const [userInfo, setUserInfo] = useRecoilState(userAtom);
   const handleLogin = useCallback(async () => {
-    await User.login(email, password).then(res => {
+    await User.login(email, password).then((res) => {
       switch (res.status) {
         case 400:
           alert("이메일 또는 비밀번호가 다릅니다");
@@ -21,12 +21,21 @@ const LoginContainer = withRouter(({ history }) => {
           localStorage.setItem("dorandoran-client", token);
           console.log(user);
           setUserInfo({ id, email, name, role });
+          console.log(userInfo);
           alert("로그인에 성공하였습니다");
           history.push("/Home");
       }
     });
-  }, []);
-  return <Login email={email} password={password} setEmail={setEmail} setPassword={setPassword} handleLogin={handleLogin} />;
+  }, [email, history, password, setUserInfo, userInfo]);
+  return (
+    <Login
+      email={email}
+      password={password}
+      setEmail={setEmail}
+      setPassword={setPassword}
+      handleLogin={handleLogin}
+    />
+  );
 });
 
 export default LoginContainer;

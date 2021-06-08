@@ -1,7 +1,19 @@
 import React from "react";
 import { Route, BrowserRouter as Router } from "react-router-dom";
-import { AdminEscapePage, HomePage, LoginPage, MainOutingPage, MainPage, MainRoomPage,
-  MeetingRoomPage, Mypage, OutingPage, RentalRoomPage, RoomDetailPage, SignupPage } from "pages";
+import {
+  AdminEscapePage,
+  HomePage,
+  LoginPage,
+  MainOutingPage,
+  MainPage,
+  MainRoomPage,
+  MeetingRoomPage,
+  Mypage,
+  OutingPage,
+  RentalRoomPage,
+  RoomDetailPage,
+  SignupPage,
+} from "pages";
 import { RecoilRoot } from "recoil";
 
 const App: React.FC = () => {

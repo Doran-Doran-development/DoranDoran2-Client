@@ -12,8 +12,15 @@ const SignupContainer = withRouter(({ history }) => {
   const [grade, setGrade] = useState(0);
   const [homeroom, setHomeroom] = useState(0);
   const handleSignup = useCallback(async () => {
-    await UserAPI.teacherSignup(name, email, password, grade, homeroom, certification_code).then(res => console.log(res));
-  }, []);
+    await UserAPI.teacherSignup(
+      name,
+      email,
+      password,
+      grade,
+      homeroom,
+      certification_code
+    ).then((res) => console.log(res));
+  }, [certification_code, email, grade, homeroom, name, password]);
   return (
     <Signup
       name={name}

@@ -1,8 +1,8 @@
-import axios, { AxiosInstance, Method } from 'axios';
-import {BASE_URL, BASE_HEADER} from "../../config/config.json"
+import axios, { Method } from "axios";
+import { BASE_URL, BASE_HEADER } from "../../config/config.json";
 
-const token = window.sessionStorage.getItem("dorandoran_token")
-const ACCESS_TOKEN_HEADER_NAME = "Authorization"
+const token = window.sessionStorage.getItem("dorandoran_token");
+const ACCESS_TOKEN_HEADER_NAME = "Authorization";
 
 interface requestCustomAxiosType {
   method: Method;
@@ -12,29 +12,32 @@ interface requestCustomAxiosType {
 }
 
 export const methodType = {
-  GET: 'GET',
-  POST: 'POST',
-  PUT: 'PUT',
-  DELETE: 'DELETE',
+  GET: "GET",
+  POST: "POST",
+  PUT: "PUT",
+  DELETE: "DELETE",
 };
 
-export const requestCustomAxios = async (
-  {method, url, body, header} : requestCustomAxiosType
-) => {
+export const requestCustomAxios = async ({
+  method,
+  url,
+  body,
+  header,
+}: requestCustomAxiosType) => {
   try {
     const response = await axios({
-      baseURL : BASE_URL,
+      baseURL: BASE_URL,
       url: url,
       data: body,
       method: method,
       headers: {
         ...BASE_HEADER,
         [ACCESS_TOKEN_HEADER_NAME]: token || "",
-        ...header
-      }
-    })
+        ...header,
+      },
+    });
     return response;
   } catch (error) {
-    throw error
+    throw error;
   }
-}
+};
