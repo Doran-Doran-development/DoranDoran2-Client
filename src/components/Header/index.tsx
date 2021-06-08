@@ -27,21 +27,21 @@ const MemberStudent = () => {
     </>
   );
 };
-const MemberTeacher = () => {
-  const handleLogout = () => {
-    sessionStorage.clear();
-  };
-  return (
-    <>
-      <S.HeaderLink to="/Home">회의실 목록보기</S.HeaderLink>
-      <S.HeaderLink to="/escape">외출 관리하기</S.HeaderLink>
-      <S.HeaderLink to="/mypage">마이페이지</S.HeaderLink>
-      <S.HeaderLink to="/" onClick={handleLogout} id="logout">
-        로그아웃
-      </S.HeaderLink>
-    </>
-  );
-};
+// const MemberTeacher = () => {
+//   const handleLogout = () => {
+//     sessionStorage.clear();
+//   };
+//   return (
+//     <>
+//       <S.HeaderLink to="/Home">회의실 목록보기</S.HeaderLink>
+//       <S.HeaderLink to="/escape">외출 관리하기</S.HeaderLink>
+//       <S.HeaderLink to="/mypage">마이페이지</S.HeaderLink>
+//       <S.HeaderLink to="/" onClick={handleLogout} id="logout">
+//         로그아웃
+//       </S.HeaderLink>
+//     </>
+//   );
+// };
 const Header: React.FC = () => {
   const token = window.sessionStorage.getItem("dorandoran_token") || true;
   return (
