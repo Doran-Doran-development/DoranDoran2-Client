@@ -40,11 +40,12 @@ const MeetingRoom: React.FC<MeetingRoomProps> = ({ RoomDummyData }) => {
 const S = {
   Positioner: styled.div`
     width: 100%;
-    height: calc(100vh - 90px);
-    overflow: auto;
+    height: auto;
   `,
   Wrapper: styled.div`
     display: flex;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
     width: 100%;
     height: 100%;
     justify-content: center;
